@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scalpboard Clone</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Scalpboard Clone</h1>
+</header>
+
+<div class="container">
+    <div class="table-container">
+        <h3>Таблица монет</h3>
+        <table id="coin-list">
+            <tr>
+                <th>Монета</th>
+                <th>Цена</th>
+                <th>Изменение</th>
+            </tr>
+            <tr>
+                <td>BTC/USDT</td>
+                <td id="btc-price">0</td>
+                <td id="btc-change">0%</td>
+            </tr>
+            <tr>
+                <td>ETH/USDT</td>
+                <td id="eth-price">0</td>
+                <td id="eth-change">0%</td>
+            </tr>
+            <tr>
+                <td>BNB/USDT</td>
+                <td id="bnb-price">0</td>
+                <td id="bnb-change">0%</td>
+            </tr>
+            <tr>
+                <td>XRP/USDT</td>
+                <td id="xrp-price">0</td>
+                <td id="xrp-change">0%</td>
+            </tr>
+            <tr>
+                <td>SOL/USDT</td>
+                <td id="sol-price">0</td>
+                <td id="sol-change">0%</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="graph-container">
+        <h3>График</h3>
+        <div id="tradingview"></div>
+        <script type="text/javascript">
+            new TradingView.widget({
+                "autosize": true,
+                "symbol": "BINANCE:BTCUSDT",
+                "interval": "15",
+                "container_id": "tradingview",
+                "datafeed": new Datafeeds.UDFCompatibleDatafeed("https://demo_feed.tradingview.com"),
+                "library_path": "/charting_library/",
+                "locale": "ru",
+                "disabled_features": ["header_symbol_search", "header_compare", "header_undo_redo", "header_chart_type", "timeframes_toolbar"],
+                "enabled_features": ["study_templates"],
+                "theme": "dark"
+            });
+        </script>
+    </div>
+</div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="js/main.js"></script>
+<script src="https://unpkg.com/tradingview-widget@latest"></script>
+
+</body>
+</html>
